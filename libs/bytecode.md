@@ -59,32 +59,32 @@ The tree api creates an object representation of a class that you can manipulate
 
 ```java
 public void scan(byte[] classBytecode) {
-	// Get the node
-	ClassReader reader = new ClassReader(ClassReader);
-	ClassNode node = new ClassNode();
-	reader.accept(node, readFlags);
-	// Scan for fields that are an int with constant value assigned to 0x80000001
-	for (FieldNode fn : cn.fields) {
-		if (fn.desc.equals("I") && fn.value != null) { 
-			if (fn.value.equals(0x80000001)) {
-				System.out.println(node.name + " " + fn.name + " == HKLU");
-			}
-		}
-	}
-	// Scan for methods that invoke JNA methods
-	for (MethodNode mn : cn.methods) {
-		// Iterate instructions of method
-		for (AbstractInsnNode insn : mn.instructions) {
-			if (insn.getType() == AbstractInsnNode.METHOD_INSN) {
-				MethodInsnNode min = (MethodInsnNode) insn;
-				// Break iteration of the instructions looping if found, move on to the next method
-				if (min.owner.startsWith("com/sun/jna/")) {
-					System.out.println(node.name + " " + mn.name + " == JNA Usage");
-					break;
-				}
-			}
-		}
-	}
+    // Get the node
+    ClassReader reader = new ClassReader(ClassReader);
+    ClassNode node = new ClassNode();
+    reader.accept(node, readFlags);
+    // Scan for fields that are an int with constant value assigned to 0x80000001
+    for (FieldNode fn : cn.fields) {
+        if (fn.desc.equals("I") && fn.value != null) { 
+            if (fn.value.equals(0x80000001)) {
+                System.out.println(node.name + " " + fn.name + " == HKLU");
+            }
+        }
+    }
+    // Scan for methods that invoke JNA methods
+    for (MethodNode mn : cn.methods) {
+        // Iterate instructions of method
+        for (AbstractInsnNode insn : mn.instructions) {
+            if (insn.getType() == AbstractInsnNode.METHOD_INSN) {
+                MethodInsnNode min = (MethodInsnNode) insn;
+                // Break iteration of the instructions looping if found, move on to the next method
+                if (min.owner.startsWith("com/sun/jna/")) {
+                    System.out.println(node.name + " " + mn.name + " == JNA Usage");
+                    break;
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -119,17 +119,17 @@ private static void example() {
 }
 
 private static byte[] patch(CtClass cc) {
-	try {
-		// Add: System.out.println($METHOD_NAME + " invoked");
-		CtMethod[] methods = cc.getDeclaredMethods()
-		for (CtMethod meth : methods) {
-			meth.insertBefore("System.out.println(" + meth.getName() + " invoked\");");
-		}
-		return cc.toBytecode();
-	} catch (Exception ex) {
-		ex.printStackTrace();
-		return byteCode;
-	}
+    try {
+        // Add: System.out.println($METHOD_NAME + " invoked");
+        CtMethod[] methods = cc.getDeclaredMethods()
+        for (CtMethod meth : methods) {
+            meth.insertBefore("System.out.println(" + meth.getName() + " invoked\");");
+        }
+        return cc.toBytecode();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        return byteCode;
+    }
 }
 ```
 

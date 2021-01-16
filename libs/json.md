@@ -21,17 +21,17 @@ json = adapter.toJson(car);
 // Custom adapter allows changing JSON representation to a simple string (brand:doors)
 // Usage: new Builder().add(new CarAdapter()).build();
 class CarAdapter {
-	@ToJson 
+    @ToJson 
     String toJson(Car car) {
-		return card.brand + ":" + car.doors;
-	}
-	
-	@FromJson 
+        return card.brand + ":" + car.doors;
+    }
+    
+    @FromJson 
     Car fromJson(String car) {
-		String[] split = car.split(":");
-		if (split.length != 2) throw new JsonDataException("Unknown car format: " + car);
-		return new Car(split[0], Integer.parseInt(split[1]));
-	}
+        String[] split = car.split(":");
+        if (split.length != 2) throw new JsonDataException("Unknown car format: " + car);
+        return new Car(split[0], Integer.parseInt(split[1]));
+    }
 }
 ```
 
@@ -47,7 +47,7 @@ Jackson used to be just a JSON library but now supports a variety of data format
 ```java
 // Read
 String json = "{\"brand\":\"Jeep\", \"doors\": 3}";
-Car car = objectMapper.readValue(json, Car.class);	
+Car car = objectMapper.readValue(json, Car.class);    
 // Read generic collection
 json = "[{\"brand\":\"Jeep\", \"doors\": 3}]";
 List<Car> listCar = objectMapper.readValue(jsonCarArray, new TypeReference<List<Car>>(){});
