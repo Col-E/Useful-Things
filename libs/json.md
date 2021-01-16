@@ -45,15 +45,15 @@ Jackson used to be just a JSON library but now supports a variety of data format
 **Example**
 
 ```java
+ObjectMapper mapper = new ObjectMapper();
 // Read
 String json = "{\"brand\":\"Jeep\", \"doors\": 3}";
-Car car = objectMapper.readValue(json, Car.class);    
+Car car = mapper.readValue(json, Car.class);    
 // Read generic collection
 json = "[{\"brand\":\"Jeep\", \"doors\": 3}]";
-List<Car> listCar = objectMapper.readValue(jsonCarArray, new TypeReference<List<Car>>(){});
+List<Car> listCar = mapper.readValue(jsonCarArray, new TypeReference<List<Car>>(){});
 // Write
-ObjectMapper objectMapper = new ObjectMapper();
-objectMapper.writeValue(new File("car.json"), car);
+mapper.writeValue(new File("car.json"), car);
 ```
 
 ## Gson
