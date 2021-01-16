@@ -14,7 +14,7 @@ Moshi is a small, annotation-driven JSON library that offers Kotlin code-generat
 ```java
 Moshi moshi = new Builder().build();
 JsonAdapter<Car> adapter = moshi.adapter(Car.class);
-// Read
+// Parse
 Car car = adapter.fromJson(json);
 // Write
 json = adapter.toJson(car);
@@ -46,12 +46,15 @@ Jackson used to be just a JSON library but now supports a variety of data format
 
 ```java
 ObjectMapper mapper = new ObjectMapper();
-// Read
+// Parse
 String json = "{\"brand\":\"Jeep\", \"doors\": 3}";
 Car car = mapper.readValue(json, Car.class);    
 // Read generic collection
 json = "[{\"brand\":\"Jeep\", \"doors\": 3}]";
 List<Car> listCar = mapper.readValue(jsonCarArray, new TypeReference<List<Car>>(){});
+// Transform to Json object
+JsonNode node = mapper.readTree(json);
+String brand = node.get("brand").asText();
 // Write
 mapper.writeValue(new File("car.json"), car);
 ```
@@ -101,7 +104,7 @@ if (value.isString()) {
     String brand = object.get("brand").asString();
     int doors = object.get("doors").asInt();
 }
-// Creating
+// Creating new json objects
 JsonValue name = Json.value("Jeep");
 JsonValue doors = Json.value(3);
 // Writing
