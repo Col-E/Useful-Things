@@ -5,6 +5,7 @@ A collection of my opinions on handy libraries, tips, and articles.
 ## Libraries
 
 * [Bytecode](libs/bytecode.md)
+* [Dependency Injection](libs/dependency-injection.md)
 * [JSON](libs/json.md)
 
 ## Tips
@@ -14,4 +15,4 @@ A collection of my opinions on handy libraries, tips, and articles.
 
 ## Opinions
 
-* [Switching to Kotlin isn't worth it](opinions/switching-to-kotlin.md)
+* [Switching to Kotlin makes less sense as Java evolves](opinions/switching-to-kotlin.md)
