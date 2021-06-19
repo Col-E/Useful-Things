@@ -1,6 +1,4 @@
-# Opinion: Switching to Kotlin isn't worth it
-
-What this is:
+# Opinion: Switching to Kotlin makes less sense as Java evolves
 
 * A list of arguments for switching to Kotlin that I've seen that I don't believe really hold up well.
   * Lots of features Kotlin and other languages pioneered are now in core Java
