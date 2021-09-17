@@ -124,6 +124,14 @@ var result = switch(download) {
 
 ---------------------------------------------------------------
 
+## Community Opinions
+
+- [/u/rzwitserloot - Kotlin seems to be marketed as java with some minor warts removed. But, what does that mean?](https://www.reddit.com/r/java/comments/ndwz92/can_i_get_some_reasons_to_use_java_instead_of/gyd5yi5/) 
+- [/u/cte3X - Why would someone use Java instead of Kotlin when starting a new project?](https://www.reddit.com/r/java/comments/hiuozr/why_would_someone_use_java_instead_of_kotlin_when/)
+- [/u/pure_x01 - If someone wanted to use Kotlin instead of Java on the next big project at your company what would be your objection?](https://www.reddit.com/r/java/comments/exuepr/if_someone_wanted_to_use_kotlin_instead_of_java/)
+
+---------------------------------------------------------------
+
 ## Counter: Things Kotlin has that Java does not have:
 
 - Local methods. 
