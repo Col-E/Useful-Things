@@ -13,6 +13,10 @@ A collection of my opinions on handy libraries, tips, and articles.
 * [How to choose libraries for a task](tips/choosing-libraries.md)
 * [How to write a library in context of verbosity and complexity](tips/verbosity-and-complexity.md)
 
+## Tutorials
+
+* [Setting up JavaFX with Maven](tutorials/javafx/maven-setup)
+
 ## Opinions
 
 * [Switching to Kotlin makes less sense as Java evolves](opinions/switching-to-kotlin.md)

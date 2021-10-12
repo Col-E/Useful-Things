@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Your project domain, name, and version can be put here -->
+    <groupId>org.example</groupId>
+    <artifactId>jfx-maven</artifactId>
+    <version>1.0.0</version>
+
+    <!-- Some properties are read by maven and can let your IDE auto-configure things -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- The properties below this line are custom, and just for making things easier -->
+        <jfx.version>16</jfx.version>
+    </properties>
+
+    <!-- This is where you define all the things you want to use in your project -->
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.openjfx/ -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${jfx.version}</version> <!-- Using our defined property from above -->
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>${jfx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${jfx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>${jfx.version}</version>
+        </dependency>
+
+        <!-- You could add any extra dependencies here -->
+    </dependencies>
+
+    <!-- This is where you configure how maven compiles and generates the final jar files -->
+    <build>
+        <plugins>
+            <!-- This plugin configures compiler settings -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <!-- Targeting Java 16 -->
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+            </plugin>
+
+            <!-- This plugin controls how the final jar is created -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <!-- Configure it to "package" everything into a "single" jar -->
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <!-- Extra options, like specifying the main class (containing main(string[] args)) -->
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>org.example.JavaFxDemo</mainClass>
+                        </manifest>
+                    </archive>
+                    <!-- Type of jar to create -->
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
