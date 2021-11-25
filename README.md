@@ -17,6 +17,10 @@ A collection of my opinions on handy libraries, tips, and articles.
 
 * [Setting up JavaFX with Maven](tutorials/javafx/maven-setup)
 
+## Reverse Engineering
+
+* [01: Understanding Java Compilation and Execution](reversing/re-01-java-compiling.md) 
+
 ## Opinions
 
 * [Switching to Kotlin makes less sense as Java evolves](opinions/switching-to-kotlin.md)
