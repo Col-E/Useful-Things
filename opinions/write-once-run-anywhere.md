@@ -1,4 +1,4 @@
-# Write Once, Run Anywere: _Please keep it this way_
+# Write Once, Run Anywhere: _Please keep it this way_
 
 Its been the catch-phrase of Java for years. You can take any standard Java code, compile it once to a `.class` _(or `.jar` for portability of multiple classes)_ and it will work on any computer with Java installed. Now of course, there are some limitations to this assumption. The local installed Java version has to meet the minimum language level of the compiled program and any libraries must be included or bundled with the application. In most cases library bundling can be entirely automated with a build tool like maven or gradle. So in most cases it _"Just Works"_ sorta deal. So when is it not? When would we want to be more specific about the target platform?
 
