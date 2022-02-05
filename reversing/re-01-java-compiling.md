@@ -160,8 +160,19 @@ This post is really just the tip of the ice berg. There is plenty of additional 
 
 And of course, there's the specificaiton itself:
 
-* https://docs.oracle.com/javase/specs/jvms/se17/html/index.html
-* https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html - The JVM structure
-* https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-3.html - Compiling
-* https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-4.html - Class file structure
-* https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-6.html - JVM instruction set
+* Specs as of Java 17: https://docs.oracle.com/javase/specs/jvms/se17/html/index.html
+* [Chapter 2. The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html)
+  * [PC register](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.5.1)
+  * [Stack](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.5.2)
+  * [Native Stack](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.5.6),
+  * [Local Variables](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.6.1)
+  * [Operand Stacks](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.6.2)
+  * [Dynamic Linking](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.6.3)
+  * [Constant Pool](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.5.5)
+  * [Frame](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.6)
+  * [Heap](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.5.3)
+  * [Method area](http://docs.oracle.com/javase/specs/jvms/se17/html/jvms-2.html#jvms-2.5.4)
+* [Chapter 3. Compiling for the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-3.html)
+* [Chapter 4. The `class` File Format](https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-4.html)
+* [Chapter 6. The Java Virtual Machine Instruction Set](https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-6.html)
+* [Terminology](http://openjdk.java.net/groups/hotspot/docs/HotSpotGlossary.html)

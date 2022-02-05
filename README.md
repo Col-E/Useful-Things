@@ -20,6 +20,7 @@ A collection of my opinions on handy libraries, tips, and articles.
 ## Reverse Engineering
 
 * [01: Understanding Java Compilation and Execution](reversing/re-01-java-compiling.md) 
+* [02: Java Decompilation](reversing/re-02-java-decompiling.md) 
 
 ## Opinions
 
