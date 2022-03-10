@@ -122,4 +122,10 @@ for (int i = apples.size() - 1; i >= 0; i--)
 
 The first option is clearly much less verbose and achieves the same outcome. 
 
-`TODO: Continue writing article on lower level verbosity with examples`
+```
+TODO: Continue writing article on lower level verbosity with examples
+ - If-else chain vs guard clause flow control
+ - How often to break logic into different methods
+ - When/where to add code comments
+ - Etc.
+```
