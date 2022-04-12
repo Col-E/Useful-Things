@@ -21,6 +21,7 @@ A collection of my opinions on handy libraries, tips, and articles.
 
 * [01: Understanding Java Compilation and Execution](reversing/re-01-java-compiling.md) 
 * [02: Java Decompilation](reversing/re-02-java-decompiling.md) 
+* [03: Recovering source from Java classes](reversing/re-03-java-recovering-source.md)
 
 ## Opinions
 

@@ -104,7 +104,7 @@ It is true that compared to other languages Java decompilation is very accurate 
 
 Misleading decompilation can be the result of a bug in the decompiler software, lack of support for a new language feature, or in the worst case the inability to represent a bytecode-level concept as source code. There are some things that are valid in Java bytecode that do not have any equivalent representation in source code. In these cases the best thing a decompiler can do is warn you that it tried it's best but the output is still wrong.
 
-You will want to be able to read raw JVM bytecode in cases where the decompiler cannot output useful results. This may sound scary but it really isn't. The Java class file spec can be read in under an hour _(Especially skimming over redundant information)_. Its a simple format and the instruction set is very small compared to something like x86. A few items may seem a bit scary at first but if you try compiling your own Java source code and comparing it against the resulting bytecode it should help you out if the wording of the specification is confusing.
+You will want to be able to read JVM bytecode in cases where the decompiler cannot output useful results. This may sound scary but it really isn't. The Java class file spec can be read in under an hour _(Especially skimming over redundant information)_. Its a simple format and the instruction set is very small compared to something like x86. A few items may seem a bit scary at first but if you try compiling your own Java source code and comparing it against the resulting bytecode it should help you out if the wording of the specification is confusing.
 
 ## How to deal with obfuscation?
 
@@ -112,5 +112,6 @@ If you are lucky the obfuscation can be dealt with by [existing tools](https://g
 
 ## Further Reading
 
-- [SkidSuite](https://github.com/GenericException/SkidSuite) - A collection of tools and articles pertaining to JVM reverse engineering
+- [Anatomy of a Java Decompiler](https://members.accu.org/index.php/articles/1850) - Authors of [CFR](https://github.com/leibnitz27/cfr) and [Procyon](https://github.com/mstrobel/procyon),  [Lee Benfield](https://github.com/leibnitz27) and [Mike Strobel](https://github.com/mstrobel) talk about the anatomy of a decompiler in much greater detail than done here. 
+- [SkidSuite](https://github.com/GenericException/SkidSuite) - A collection of tools and articles pertaining to JVM reverse engineering. Contains dozens of obfuscated samples to look at as well.
 - ["Covert Java: Techniques for Decompiling, Patching, and Reverse Engineering"](https://www.amazon.com/Covert-Java-Techniques-Decompiling-Engineering/dp/0672326388) - An older book from 2004 meaning the referenced tools are outdated, but many of the concepts are still very relevant today. 
