@@ -48,6 +48,10 @@ Kotlins compiler has this extra step which tracks what values can be null and wa
 
 In Java we have tools like [NullAway](https://github.com/uber/NullAway) and [FindBugs](http://findbugs.sourceforge.net/) that can do exactly the same. FindBugs is more lenient with the default configuration than Kotlin, but its nothing that can't be a one-and-done configuration. 
 
+And more recently IDE's have added null safety checks. Here's an example of IntelliJ warning about a possible NPE:
+
+![NPE on latch](media/ij-null.png)
+
 ## Argument: Kotlin has smart casting
 
 So does Java as of [Java 14, JEP 305](https://openjdk.java.net/jeps/305).
