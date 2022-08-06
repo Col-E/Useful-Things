@@ -25,5 +25,6 @@ A collection of my opinions on handy libraries, tips, and articles.
 
 ## Opinions
 
+* [Why Java is Great](opinions/why-java-is-great.md)
 * [Switching to Kotlin makes less sense as Java evolves](opinions/switching-to-kotlin.md)
 * [Write Once, Run Anywhere: Please keep it this way](opinions/write-once-run-anywhere.md)
