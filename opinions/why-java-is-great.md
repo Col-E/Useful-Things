@@ -16,8 +16,10 @@ I'll cut to the chase. Here's the TLDR:
  - The speed of the JVM:
     - Java's performance is all in the long-game due to the nature of JIT. But if you want a short-lived program that opens quickly there are AOT options too.
  - The language is constantly evolving:
- 	- New language features allow more elegant syntax as pattern matching capabilities are added
- 	- Performance enhancements are on the horizon _(Valhalla)_
+    - But not in a _"Python 2 -> 3"_ way. Things are always designed with compatibility in mind
+    - New language features allow more elegant syntax as pattern matching capabilities are added
+    - Performance enhancements are on the horizon _(Valhalla)_
+    
 
 ## The Syntax
 
@@ -139,6 +141,8 @@ So now lets answer that question, _"Wouldn't having an intermediate step slow th
 Well, yes and no. Yes, because at first we are interpreting the bytecode, which is obviously slower than native code. But as mentioned before, the only situation in which code is interpreted is when the code isn't used often. So the loss there is negligible. What about the common code then? Well, again we can start off with basic optimizations that are quick to compute. And we're only doing this on a per-method basis. So unlike our quick example with C, we are compiling a very small fraction of the application any time we need to do this step. Even if we transition to being a _"hot"_ method and use our most advanced forms of optimization once we've compiled the method thats it. At least until the JVM profiler detects circumstances would be better off with a different set of optimizations. But while we are in this final state we are equal to or faster than equivalent statically compiled code from a compiler such as GCC. The trade off we have is that while our final optimizations may be better it does take a short amount of time to enter this state. To answer the question, it actually depends on the kind of application we're creating.
 
 For an application that only starts up and does one thing then closes, this is not an ideal setup. Our optimization benefits from long term analysis of runtime behavior. For an application that starts up and stays open for more than a few minutes that is when the trade offs really become apparent. Server software for instance is an ideal candidate for this approach to creating optimized code since they typically stay alive for hours or even days and weeks.
+
+![aot vs jit](media/aot-vs-jit.jpg)
 
 But even if an application is to be short lived you can still stick with Java because there are tools like [GraalVM](https://www.graalvm.org/)'s [Native Image](https://www.graalvm.org/native-image/) program, which allows you to create ahead-of-time _(AOT)_ compiled images of your application for a given platform, just like if you were to compile a C program. They will of course not have the benefits of JIT compilation, which means you'll want to consider how long the application will be alive before adopting this approach. Another double edged sword of AOT compiled applications is that dynamic capabilities of Java are a bit finicky to work with, [though it is possible with the right configuration](https://blog.frankel.ch/configuring-graal-native-aot-reflection/).
 
