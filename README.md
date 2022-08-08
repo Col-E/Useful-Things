@@ -16,6 +16,7 @@ A collection of my opinions on handy libraries, tips, and articles.
 ## Tutorials
 
 * [Setting up JavaFX with Maven](tutorials/javafx/maven-setup)
+* [Setting up JavaFX with Gradle](tutorials/javafx/gradle-setup)
 
 ## Reverse Engineering
 
