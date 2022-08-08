@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0.0'
+
+def mainClassName = "org.example.JavaFxDemo"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+configurations {
+    // A custom configuration is required. Using the standard 'implementation' dependency scope yields the following error:
+    //    Resolving dependency configuration 'implementation' is not allowed as it is defined as 'canBeResolved=false'.
+    // And 'compile' has been removed in later Gradle releases because they follow "move fast and break things" rather than making a stable tool
+    compileAndRuntime
+    compileAndRuntime.transitive = true
+    implementation.extendsFrom(compileAndRuntime)
+}
+
+dependencies {
+    // We need to also specify the platform classifier because unlike Maven, which will pull items from all classified releases, 
+    // Gradle passes no classifier if you do not explicitly give it one. And you cannot use '*' in Gradle either, so for the same behavior 
+    // you need to have the same artifact listed once per platform. So there is no automatic way to say "give me all the platform version in one go".
+    def jfxVersion = "16"
+    def jfxPlatform = getJavaFxPlatform()
+    // We need to specify all the modules we use in JavaFX with the classifiers because transitive resolving will resolve
+    // to the EMPTY non-classified jars. Comment out any module that you do not need, like 'web' or 'media'
+    compileAndRuntime "org.openjfx:javafx-base:${jfxVersion}:${jfxPlatform}"
+    compileAndRuntime "org.openjfx:javafx-graphics:${jfxVersion}:${jfxPlatform}"
+    compileAndRuntime "org.openjfx:javafx-controls:${jfxVersion}:${jfxPlatform}"
+    compileAndRuntime "org.openjfx:javafx-media:${jfxVersion}:${jfxPlatform}"
+    compileAndRuntime "org.openjfx:javafx-fxml:${jfxVersion}:${jfxPlatform}"
+    compileAndRuntime "org.openjfx:javafx-web:${jfxVersion}:${jfxPlatform}"
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.compileAndRuntime.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+private static def getJavaFxPlatform() {
+    def os = System.getProperty('os.name').toLowerCase(Locale.ENGLISH)
+    if (os.contains('win')) {
+        return 'win'
+    }
+    if (os.contains('nix') || os.contains('nux')) {
+        return 'linux'
+    }
+    if (os.contains('osx') || os.contains('mac')) {
+        return 'mac'
+    }
+    assert false: "unknown os: $os"
+}
