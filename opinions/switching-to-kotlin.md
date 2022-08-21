@@ -62,6 +62,36 @@ if (obj instanceof String s && s.length() > 5) {
 }
 ```
 
+> But kotlin is shorter! `obj` is now treated as a string!
+
+While it is true that this is shorter, it is also more brittle. Consider the following: `public class MyHandler implements HandlerOne, HandlerTwo`.
+
+```java
+HandlerOne x = getHandler();
+if (x instanceof HandlerTwo) {
+    // If we assume 'x' is now 'HandlerTwo' we lose the ability to refer
+    // to it as 'HandlerOne'. Not every 'HandlerOne' has to be a 'HandlerTwo'. 
+    // Calling a method of 'HandlerOne' now requires casting.
+}
+if (x instanceof HandlerTwo y) {
+    // Using a separate variable we have access to both:
+    //  - 'x' as 'HandlerOne'
+    //  - 'y' as 'HandlerTwo'
+}
+```
+
+Another _"brittle"_ problem that could arise would be unintented breakage of existing logic. Assuming there is a method `foo(HandlerOne)` and `foo(HandlerTwo)`, when you wrap calls to one with an `x instanceof <the-other-handler>` then it is your responsibility to update those calls by including a cast to the orignal type of `x`.
+
+Last point on being _"brittle"_, data isn't always constant. The approach  of assuming `x` is now a different type does not work for other expression types that are not local variables. For instance, direct references to fields. Within the scope of a field cast such as `if (field instanceof HandlerTwo)` the field value could be re-assigned. The approach of _"copying"_ that reference to a second variable mitigates this issue. And for method call expressions 
+
+## Argument: Kotlin has coroutines
+
+So does [Java, JEP-425](https://openjdk.org/jeps/425). For an elaborate comparison and deep dive into the implementation details of both check ["Kotlin Coroutines vs Java Virtual Threads — A good story, but just that…"](https://itnext.io/kotlin-coroutines-vs-java-virtual-threads-a-good-story-but-just-that-91038c7d21eb). The TLDR is they're comparable, one is not inheriently better than the other.
+
+## Argument: Kotlin has sealed classes
+
+So does [Java, JEP-409](https://openjdk.org/jeps/409).
+
 ## Argument: Kotlin has lambdas
 
 I've not found an instance of Kotlin-specific lambda usage that results in code that is easier to digest than an inline Java functional interface. I'm of the mindset that consistency and clear design are goals to strive towards to ensure future maintainability. Kotlin allows you to declare, invoke, and pass lambdas in a variety of ways. This is a _"convivence"_ that I find only serves to bring inconsistency into the language design.
