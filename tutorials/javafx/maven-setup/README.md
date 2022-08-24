@@ -1,4 +1,4 @@
-# Setting up JavaFX with Maven
+# Setting up `fatJar` JavaFX with Maven
 
 > If you don't already know what Maven is, check out this [introduction post](https://www.baeldung.com/maven).
 

@@ -1,4 +1,4 @@
-# Setting up JavaFX with Gradle
+# Setting up `fatJar` JavaFX with Gradle
 
 > If you don't already know what Gradle is, check out this [introduction post](https://www.baeldung.com/gradle).
 

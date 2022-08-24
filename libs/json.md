@@ -106,7 +106,6 @@ mapper.writeValue(new File("car.json"), car);
 - [Uses less memory and performs faster than GSON](https://proandroiddev.com/goodbye-gson-hello-moshi-4e591116231e)
 - Can bypass the need for defining a default constructor _([A problem for older JSON parsers](https://stackoverflow.com/questions/30568353/how-to-de-serialize-an-immutable-object-without-default-constructor-using-object/46601536))_
 - [Can handle generic collections](https://stackoverflow.com/a/9829502/)
-- 
 
 **Cons**
 

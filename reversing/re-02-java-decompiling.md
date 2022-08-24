@@ -37,7 +37,7 @@ These blocks do not inherently have _"nesting"_ to them as you would expect from
 
 By this step we now have blocks and know which instructions belong in each block. This collection of blocks and how they connect to one another is called a Control Flow Graph (CFG).
 
-**3: Combining IR with Pattern Matching**
+**3: Combining IR with Pattern Matching & Stack Analysis**
 
 Now that we have have instructions in smaller contained blocks we can look for patterns at these smaller scales. Consider we have a series of instructions like:
 ```java
