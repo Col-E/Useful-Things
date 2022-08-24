@@ -126,6 +126,8 @@ class MyExample {
 
 ## Honorable mentions
 
-**Spring**: The Spring framework has lots of features, but the dependency injection system is one of the ones at the framework's core. To work with any Spring project its vital knowing core DI concepts.
+**[Dirk](https://github.com/hjohn/Dirk)**: Very similar to Feather but with additional modules for a few extra features.
 
-**Weld**: Weld is a context and dependency injection system and  is heavily tied to the Java Enterprise space. Its dependency injection documentation with example code can be found [here](https://docs.jboss.org/weld/reference/latest/en-US/html/injection.html).
+**[Spring](https://www.baeldung.com/spring-dependency-injection)**: The Spring framework has lots of features, but the dependency injection system is one of the ones at the framework's core. To work with any Spring project its vital knowing core DI concepts.
+
+**[Weld](https://weld.cdi-spec.org/)**: Weld is a context and dependency injection system and  is heavily tied to the Java Enterprise space. Its dependency injection documentation with example code can be found [here](https://docs.jboss.org/weld/reference/latest/en-US/html/injection.html).
