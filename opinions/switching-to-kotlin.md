@@ -7,7 +7,7 @@ What this is not:
 
 * An exhaustive list for every possible defense of the argument of sticking with Java
 * An assertion that you should switch back to Java if you're already using it.
-* An assertion that Java is _"better"_ than Kotlin.
+* An assertion that Java is _"better"_ than Kotlin _(Even if it is)_
 
 ## Argument: Kotlin has `var`
 
@@ -172,6 +172,7 @@ var result = switch(download) {
   - A branch for this was created last year in Project Amber though.
 - Lambdas that can take non-final values
 - Extension methods
+    - I'd argue these are massive code-smells though
 - Default argument constructors
 - Multi-property setting with `apply()`
 - Elvis operator
