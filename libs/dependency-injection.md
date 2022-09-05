@@ -38,6 +38,89 @@ public class DataConsumer {
 DataConsumer consumer = feather.instance(DataConsumer.class);
 ```
 
+## Dirk
+
+* Site: https://github.com/hjohn/Dirk
+* Maven: https://mvnrepository.com/artifact/org.int4.dirk
+
+Dirk is a flexible lightweight dependency injection. It offers multiple implementations to support differing frameworks (old `javax.inject` vs `jakarta.inject` for example).
+
+**Example**
+
+```java
+// Instantiate the injector
+Injector injector = Injectors.autoDiscovering()
+injector.register(Arrays.asList(... /* implementation types go here */));
+
+// Declare your class with a constructor annotated with @Inject and the dependencies it uses
+public class DataConsumer {
+    @Inject 
+    public DataConsumer(DataSource ds) {
+        // ...
+    }
+}
+
+// Create the class instance
+DataConsumer consumer = injector.getInstance(DataConsumer.class);
+```
+
+## Spring Boot
+
+* Site: https://spring.io/projects/spring-boot/
+* Maven: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
+
+Spring boot is an all-in-one bundle for creating modular applications. It also has CDI support.
+
+**Example**
+
+```java
+// Declare your class with a constructor annotated with @Inject and the dependencies it uses
+@Component
+public class DataConsumer {
+    @Inject 
+    public DataConsumer(DataSource ds) {
+        // ...
+    }
+}
+
+// Use automated scanning from Spring (v3+ also supports JSR-330 annotations)
+@SpringBootApplication(scanBasePackages = ...)
+public class App {
+	public static void main(String[] args) {
+		// Pull spring context info from annotation
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringMain.class);
+		// Create the class instance
+		DataConsumer consumer = context.getBean(DataConsumer.class)
+	}
+}
+```
+
+## Weld
+
+* Site: https://weld.cdi-spec.org/
+* Maven: https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core
+
+Weld is the most _"enterprise"_ item on this list, but it offers flexible and convinent dependency injection. Version 3X will use `javax.inject` and 4X and above will use `jakarta.inject`.
+
+**Example**
+
+```java
+// Declare your class with a constructor annotated with @Inject and the dependencies it uses
+public class DataConsumer {
+    @Inject 
+    public DataConsumer(DataSource ds) {
+        // ...
+    }
+}
+
+// Setup weld container, recursively scan for injectable components from a class's package
+SeContainer container = Weld.newInstance()
+		.addPackages(true, DataConsumer.class)
+		.initialize();
+// Create the class instance
+DataConsumer consumer = container.select(DataConsumer.class).get();
+```
+
 ## Guice
 
 * Site: https://github.com/google/guice
@@ -123,11 +206,3 @@ class MyExample {
 	}
 }
 ```
-
-## Honorable mentions
-
-**[Dirk](https://github.com/hjohn/Dirk)**: Very similar to Feather but with additional modules for a few extra features.
-
-**[Spring](https://www.baeldung.com/spring-dependency-injection)**: The Spring framework has lots of features, but the dependency injection system is one of the ones at the framework's core. To work with any Spring project its vital knowing core DI concepts.
-
-**[Weld](https://weld.cdi-spec.org/)**: Weld is a context and dependency injection system and  is heavily tied to the Java Enterprise space. Its dependency injection documentation with example code can be found [here](https://docs.jboss.org/weld/reference/latest/en-US/html/injection.html).

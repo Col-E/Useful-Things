@@ -17,6 +17,7 @@ A collection of my opinions on handy libraries, tips, and articles.
 
 * [Setting up `fatJar` JavaFX with Maven](tutorials/javafx/maven-setup)
 * [Setting up `fatJar` JavaFX with Gradle](tutorials/javafx/gradle-setup)
+* [Using a variety of dependency injection frameworks to create modular applications](tutorials/dependency-injection)
 
 ## Reverse Engineering
 

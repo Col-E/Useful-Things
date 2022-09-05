@@ -1,0 +1,17 @@
+# IntelliJ
+out/
+.idea/
+.idea_modules/
+*.iws
+*.iml
+
+# Eclipse
+.settings/
+.classpath
+.checkstyle
+.project
+
+# Maven
+target/
+build/
+generated/

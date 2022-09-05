@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>impl-dirk</artifactId>
+
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>weather</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <properties>
+        <dirk.version>1.0.0-beta1</dirk.version>
+    </properties>
+
+    <dependencies>
+        <!-- Core -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>core</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <!--
+        Dirk DI has multiple 'implementations' for each style of DI.
+        We're using JSR-330 in this project so we'll use this impl.
+        https://mvnrepository.com/artifact/org.int4.dirk/dirk-jsr330
+         -->
+        <dependency>
+            <groupId>org.int4.dirk</groupId>
+            <artifactId>dirk-jsr330</artifactId>
+            <version>${dirk.version}</version>
+        </dependency>
+    </dependencies>
+</project>
