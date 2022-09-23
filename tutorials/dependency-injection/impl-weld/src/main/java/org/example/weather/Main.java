@@ -1,13 +1,15 @@
 package org.example.weather;
 
-import org.jboss.weld.environment.se.Weld;
-
 import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 
 public class Main {
 	public static void main(String[] args) {
-		// Setup weld container, recursively scan for injectable components from the base weather package
-		SeContainer container = Weld.newInstance()
+		// Setup weld container, recursively scan for injectable components from the base weather package.
+		// Can do either:
+		//  - Weld.newInstance()
+		//  - SeContainerInitializer.newInstance()
+		SeContainer container = SeContainerInitializer.newInstance()
 				.addPackages(true, WeatherApplication.class)
 				.initialize();
 		// Create application instance and run
