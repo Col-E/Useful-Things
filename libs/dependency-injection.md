@@ -114,7 +114,10 @@ public class DataConsumer {
 }
 
 // Setup weld container, recursively scan for injectable components from a class's package
-SeContainer container = Weld.newInstance()
+// Can do either:
+//  - Weld.newInstance() - From weld
+//  - SeContainerInitializer.newInstance() - From CDI spec
+SeContainer container = SeContainerInitializer.newInstance()
 		.addPackages(true, DataConsumer.class)
 		.initialize();
 // Create the class instance
