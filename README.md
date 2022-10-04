@@ -4,6 +4,12 @@ A collection of my opinions on handy libraries, tips, and articles.
 
 ## Libraries
 
+Personal Picks: 
+
+* [Good Java libraries](libs/personal-picks.md)
+
+Categories:
+
 * [Bytecode](libs/bytecode.md)
 * [Dependency Injection](libs/dependency-injection.md)
 * [JSON](libs/json.md)
