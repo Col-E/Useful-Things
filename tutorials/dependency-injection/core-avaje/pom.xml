@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>core-avaje</artifactId>
+
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>weather</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!--
+        JSR 330 - Injection
+        https://mvnrepository.com/artifact/javax.inject/javax.inject
+        -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <!--
+        JSR 305 - javax.annotation
+        https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305
+        -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!--
+        JSON parsing
+        https://mvnrepository.com/artifact/com.eclipsesource.minimal-json/minimal-json
+        -->
+        <dependency>
+            <groupId>com.eclipsesource.minimal-json</groupId>
+            <artifactId>minimal-json</artifactId>
+            <version>0.9.5</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.avaje/avaje-inject -->
+        <dependency>
+            <groupId>io.avaje</groupId>
+            <artifactId>avaje-inject</artifactId>
+            <version>7.11</version> <!-- 7 for javax.inject, 8+ for jakarta.inject -->
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.avaje/avaje-inject-generator -->
+        <dependency>
+            <groupId>io.avaje</groupId>
+            <artifactId>avaje-inject-generator</artifactId>
+            <version>7.11</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>io.avaje</groupId>
+                            <artifactId>avaje-inject-generator</artifactId>
+                            <version>7.11</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

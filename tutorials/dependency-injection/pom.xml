@@ -11,6 +11,8 @@
 
     <modules>
         <module>core</module>
+        <module>core-avaje</module>
+        <module>impl-avaje</module>
         <module>impl-dagger</module>
         <module>impl-dirk</module>
         <module>impl-feather</module>

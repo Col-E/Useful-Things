@@ -28,9 +28,11 @@ Wind:        South 7.00mph
 ## Modules
 
 - `Core` holds the demo project, a weather forecast command line application. All of the interfaces and implementing types are annotated using JSR-330 annotations.
+- `Core-Avaje` is a modified version of `Core` that specifies the `avaje-inject-generator` plugin in the `pom.xml`.
 
 **Implementations**
 
+- ['Impl-Avaje'](impl-avaje) - Using [Avaje-Inject](https://github.com/avaje/avaje-inject) framework to generate code for DI.
 - [`Impl-Dagger`](impl-dagger) - Using _[Dagger](https://github.com/google/dagger)_ framework to generate code for DI.
 - [`Impl-Dirk`](impl-dirk) - Using _[Dirk](https://github.com/hjohn/Dirk)_ to reflectively populate injected instances.
 - [`Impl-Feather`](impl-feather) - Using _[Feather](https://github.com/zsoltherpai/feather)_ to reflectively populate injected instances.
