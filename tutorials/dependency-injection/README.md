@@ -28,7 +28,8 @@ Wind:        South 7.00mph
 ## Modules
 
 - `Core` holds the demo project, a weather forecast command line application. All of the interfaces and implementing types are annotated using JSR-330 annotations.
-- `Core-Avaje` is a modified version of `Core` that specifies the `avaje-inject-generator` plugin in the `pom.xml`.
+- `Core-Avaje` is a modified version of `Core` that specifies the `avaje-inject-generator` processor in the `pom.xml`.
+- `Core-JBock` is a modified version of `Core` that specifies the `simple-component-compiler` processor in the `pom.xml`.
 
 **Implementations**
 
@@ -38,5 +39,6 @@ Wind:        South 7.00mph
 - [`Impl-Feather`](impl-feather) - Using _[Feather](https://github.com/zsoltherpai/feather)_ to reflectively populate injected instances.
 - [`Impl-Guice`](impl-guice) - Using _[Guice](https://github.com/google/guice)_ to reflectively populate injected instances.
 - [`Impl-JayWire`](impl-jaywire) - Using _[JayWire](https://github.com/vanillasource/jaywire)_ to manually populate injected instances.
+- [`Impl-JBock`](impl-jbock) - Using _[JBock](https://github.com/jbock-java/simple-component)_ to generate code for DI, with mostly pre-defined existing module implementation.
 - [`Impl-Spring`](impl-spring) - Using _[Spring Boot](https://spring.io/projects/spring-boot/)_ to reflectively populate injected instances.
 - [`Impl-Weld`](impl-weld) - Using _[Weld](https://weld.cdi-spec.org/)_ to reflectively populate injected instances.

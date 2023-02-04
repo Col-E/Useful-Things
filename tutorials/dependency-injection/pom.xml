@@ -12,12 +12,14 @@
     <modules>
         <module>core</module>
         <module>core-avaje</module>
+        <module>core-jbock</module>
         <module>impl-avaje</module>
         <module>impl-dagger</module>
         <module>impl-dirk</module>
         <module>impl-feather</module>
         <module>impl-guice</module>
         <module>impl-jaywire</module>
+        <module>impl-jbock</module>
         <module>impl-spring</module>
         <module>impl-weld</module>
     </modules>

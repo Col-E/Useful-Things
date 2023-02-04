@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>core-avaje</artifactId>
+    <artifactId>core-jbock</artifactId>
 
     <parent>
         <groupId>org.example</groupId>
@@ -47,13 +47,20 @@
 
         <!--
         Supply the annotation processor artifact, to be resolved below
-        https://mvnrepository.com/artifact/io.avaje/avaje-inject-generator
+        https://mvnrepository.com/artifact/io.github.jbock-java/jbock-compiler
         -->
         <dependency>
-            <groupId>io.avaje</groupId>
-            <artifactId>avaje-inject-generator</artifactId>
-            <version>7.11</version>
+            <groupId>io.github.jbock-java</groupId>
+            <artifactId>jbock-compiler</artifactId>
+            <version>5.14</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.jbock-java/simple-component -->
+        <dependency>
+            <groupId>io.github.jbock-java</groupId>
+            <artifactId>simple-component</artifactId>
+            <version>1.005</version>
         </dependency>
     </dependencies>
 
@@ -66,9 +73,9 @@
                 <configuration>
                     <annotationProcessorPaths>
                         <path>
-                            <groupId>io.avaje</groupId>
-                            <artifactId>avaje-inject-generator</artifactId>
-                            <version>7.11</version>
+                            <groupId>io.github.jbock-java</groupId>
+                            <artifactId>simple-component-compiler</artifactId>
+                            <version>1.005</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
