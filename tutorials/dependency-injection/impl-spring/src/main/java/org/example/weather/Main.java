@@ -1,31 +1,20 @@
 package org.example.weather;
 
-import java.lang.reflect.Method;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
+import org.springframework.context.annotation.Configuration;
 
-/**
- * Wrapper for {@link SpringMain} which maps the JSR-330 annotations to Spring's annotations.
- * <br>
- * If you are using Spring v3 or above this will not be required because as of v3 the annotations
- * are inter-changeable. This demo is using v2 since v3 isn't out yet, so we're using some hacks
- * to pretend we are on v3 and have that interoperability support.
- * <br>
- * In actuality we are rewriting some bytecode to use the correct annotation names while sticking
- * with Spring v2.
- * <br>
- * Anyways the real demo code is in {@link SpringMain}
- */
+import javax.inject.Singleton;
+
+@Configuration
+@ComponentScan(basePackages = "org.example.weather", includeFilters = @Filter(Singleton.class))
 public class Main {
 	public static void main(String[] args) {
-		SpringHacking.InjectToAutowiredMappingClassLoader loader =
-				new SpringHacking.InjectToAutowiredMappingClassLoader();
-		try {
-			Class<?> mainClass = loader.findClass(SpringMain.class.getName());
-			Method main = mainClass.getDeclaredMethod("main", String[].class);
-			Object[] invokeArgs = {args};
-			main.invoke(null, invokeArgs);
-		} catch (ReflectiveOperationException ex) {
-			ex.printStackTrace();
+		// Create the spring context, which will pull config from the annotations on this class.
+		// Using the 'ComponentScan' we can auto-discover implementations for our interfaces.
+		try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class)) {
+			context.getBean(WeatherApplication.class).run();
 		}
 	}
-
 }
