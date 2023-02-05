@@ -31,7 +31,6 @@ Wind:        South 7.00mph
 
 - `Core` holds the demo project, a weather forecast command line application.
 - `Core-Avaje` is a modified version of `Core` that specifies the `avaje-inject-generator` processor in the `pom.xml`.
-- `Core-JBock` is a modified version of `Core` that specifies the `simple-component-compiler` processor in the `pom.xml`.
 
 **Core: Custom annotations**:
 
