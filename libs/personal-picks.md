@@ -25,7 +25,7 @@
 
 - [Feather](https://github.com/zsoltherpai/feather) - Ultra-lightweight JSR-330 complaint library.
 - [Dirk](https://github.com/hjohn/Dirk) - Lightweight and customizable DI framework supporting JSR-330, Jakarta-Inject, and CDI. Documentation in main readme is top-notch.
-- [Weld](https://weld.cdi-spec.org/) - More enterprise end of JSR-330 / CDI.
+- [Weld](https://weld.cdi-spec.org/) - Moving beyond DI, CDI offers a set of additional useful features. Weld is the CDI reference implementation.
 
 ## Events
 
@@ -33,7 +33,7 @@
 
 ## Introspection / Reflection
 
-- [deencapsulation](https://github.com/xxDark/deencapsulation) - Don't like Java 9+ modules? Just disable the module system then!
+- [deencapsulation](https://github.com/xxDark/deencapsulation) & [Venuzdonoa](https://github.com/xxDark/Venuzdonoa) - Don't like Java 9+ modules? Just disable the module system then!
 - [Objenesis](https://github.com/easymock/objenesis) - Allow instantiation of any object type by bypassing the constructor. Can be quite useful in some circumstances.
 
 ## Json
