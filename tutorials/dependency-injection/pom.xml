@@ -14,7 +14,6 @@
         <module>core-avaje</module>
         <module>core-hk2</module>
         <module>core-inverno</module>
-        <module>core-jbock</module>
         <module>impl-avaje</module>
         <module>impl-dagger</module>
         <module>impl-dirk</module>

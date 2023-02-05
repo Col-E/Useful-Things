@@ -15,7 +15,7 @@
         <!-- Core -->
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>core-jbock</artifactId>
+            <artifactId>core</artifactId>
             <version>${revision}</version>
         </dependency>
 
@@ -25,5 +25,31 @@
             <artifactId>jbock</artifactId>
             <version>5.14</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.jbock-java/simple-component -->
+        <dependency>
+            <groupId>io.github.jbock-java</groupId>
+            <artifactId>simple-component</artifactId>
+            <version>1.005</version>
+        </dependency>
     </dependencies>
+
+    <!-- Register the annotation processor -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>io.github.jbock-java</groupId>
+                            <artifactId>simple-component-compiler</artifactId>
+                            <version>1.005</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
