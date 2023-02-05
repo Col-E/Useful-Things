@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>impl-inverno</artifactId>
+
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>weather</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <dependencies>
+        <!-- Core -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>core-inverno</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.inverno/inverno-core -->
+        <dependency>
+            <groupId>io.inverno</groupId>
+            <artifactId>inverno-core</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+
+        <!--
+        Inverno relies on the log4j API instead of the more abstract SLF4J API, which locks you to log4j logger impls
+        https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+        -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.17.2</version> <!-- Cannot use newer with 1.5.0, runtime NoClassDefFoundError -->
+        </dependency>
+    </dependencies>
+</project>

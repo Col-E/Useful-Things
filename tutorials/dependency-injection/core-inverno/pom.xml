@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>core-inverno</artifactId>
+
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>weather</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!--
+        JSR 305 - javax.annotation
+        https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305
+        -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!--
+        JSON parsing
+        https://mvnrepository.com/artifact/com.eclipsesource.minimal-json/minimal-json
+        -->
+        <dependency>
+            <groupId>com.eclipsesource.minimal-json</groupId>
+            <artifactId>minimal-json</artifactId>
+            <version>0.9.5</version>
+        </dependency>
+
+        <!--
+        Supply the annotation processor artifact, to be resolved below
+        https://mvnrepository.com/artifact/io.inverno/inverno-core-compiler
+        -->
+        <dependency>
+            <groupId>io.inverno</groupId>
+            <artifactId>inverno-core-compiler</artifactId>
+            <version>1.5.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--
+        Supplies Inverno annotations
+        https://mvnrepository.com/artifact/io.inverno/inverno-core-annotation
+        -->
+        <dependency>
+            <groupId>io.inverno</groupId>
+            <artifactId>inverno-core</artifactId>
+            <version>1.5.0</version> <!-- 1.5.1 requires Java 15 -->
+        </dependency>
+    </dependencies>
+
+    <!-- Register the annotation processor -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>io.inverno</groupId>
+                            <artifactId>inverno-core-compiler</artifactId>
+                            <version>1.5.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
