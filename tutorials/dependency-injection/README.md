@@ -35,6 +35,7 @@ Wind:        South 7.00mph
 
 **Core: Custom annotations**:
 
+- `Core-HK2` is a modified version of `Core` that specifies the `hk2-metadata-generator` processor in the `pom.xml`, and uses `@Service`/`@Contract` from HK2.
 - `Core-Inverno` is a modified version of `Core` that specifies the `inverno-core-compiler` processor in the `pom.xml`, and uses `@Bean` from Inverno.
 
 **Implementations**
@@ -44,6 +45,7 @@ Wind:        South 7.00mph
 - [`Impl-Dirk`](impl-dirk) - Using _[Dirk](https://github.com/hjohn/Dirk)_ to reflectively populate injected instances.
 - [`Impl-Feather`](impl-feather) - Using _[Feather](https://github.com/zsoltherpai/feather)_ to reflectively populate injected instances.
 - [`Impl-Guice`](impl-guice) - Using _[Guice](https://github.com/google/guice)_ to reflectively populate injected instances.
+- [`Impl-HK2`](impl-hk2) - Using _[Glassfish HK2](https://github.com/eclipse-ee4j/glassfish-hk2)_ to use a service-loader to discover and inject instances.
 - [`Impl-Inverno`](impl-inverno) - Using _[Inverno](https://github.com/inverno-io/inverno-core)_ framework to generate code for DI from a `module-info` file.
 - [`Impl-JayWire`](impl-jaywire) - Using _[JayWire](https://github.com/vanillasource/jaywire)_ to manually populate injected instances.
 - [`Impl-JBock`](impl-jbock) - Using _[JBock](https://github.com/jbock-java/simple-component)_ to generate code for DI, with mostly pre-defined existing module implementation.

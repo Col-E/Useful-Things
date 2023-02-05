@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>impl-hk2</artifactId>
+
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>weather</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <properties>
+        <dirk.version>1.0.0-beta1</dirk.version>
+    </properties>
+
+    <dependencies>
+        <!-- Core -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>core-hk2</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <!--
+        Locates @Service implementations
+        https://mvnrepository.com/artifact/org.glassfish.hk2/hk2-locator
+        -->
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2-locator</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+    </dependencies>
+</project>
