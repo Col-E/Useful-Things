@@ -2,7 +2,6 @@ package org.example.weather.impl;
 
 import org.example.weather.interfaces.INetworkAccessor;
 
-import javax.inject.Singleton;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URL;
@@ -11,7 +10,6 @@ import java.nio.charset.StandardCharsets;
 /**
  * Implementation to lookup network information.
  */
-@Singleton
 public class NetworkAccessor implements INetworkAccessor {
 	private InetAddress externalAddress;
 

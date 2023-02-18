@@ -4,14 +4,12 @@ import org.example.weather.commands.ICommand;
 import org.example.weather.interfaces.ICommandManager;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * Dummy command line application to tell you the weather.
  */
-@Singleton
 public class WeatherApplication implements Runnable {
 	private static final String[] EMPTY_ARGS = new String[0];
 	private static final Scanner scanner = new Scanner(System.in);

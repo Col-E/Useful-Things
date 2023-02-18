@@ -8,7 +8,6 @@ import org.example.weather.interfaces.IWeatherProvider;
 import org.example.weather.util.HTTP;
 
 import javax.annotation.Nonnull;
-import javax.inject.Singleton;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +15,6 @@ import java.util.Map;
 /**
  * Implementation to lookup weather based on location.
  */
-@Singleton
 public class WeatherProvider implements IWeatherProvider {
 	private static final String API_POINTS_URL = "https://api.weather.gov/points/";
 	private final Map<String, String> pointsJsonCache = new HashMap<>(); // cache location per roughly 10km via coords 'XX.X'

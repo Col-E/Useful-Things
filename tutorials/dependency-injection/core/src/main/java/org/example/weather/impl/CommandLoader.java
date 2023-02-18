@@ -9,14 +9,12 @@ import org.example.weather.interfaces.ILocationProvider;
 import org.example.weather.interfaces.IWeatherProvider;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Supplies new command instances.
  */
-@Singleton
 public class CommandLoader implements ICommandLoader {
 	private final Set<ICommand> commands = new HashSet<>();
 

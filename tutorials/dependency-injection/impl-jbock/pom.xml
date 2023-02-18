@@ -19,18 +19,11 @@
             <version>${revision}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.github.jbock-java/jbock -->
-        <dependency>
-            <groupId>io.github.jbock-java</groupId>
-            <artifactId>jbock</artifactId>
-            <version>5.14</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/io.github.jbock-java/simple-component -->
         <dependency>
             <groupId>io.github.jbock-java</groupId>
             <artifactId>simple-component</artifactId>
-            <version>1.005</version>
+            <version>1.009</version>
         </dependency>
     </dependencies>
 
@@ -45,7 +38,7 @@
                         <path>
                             <groupId>io.github.jbock-java</groupId>
                             <artifactId>simple-component-compiler</artifactId>
-                            <version>1.005</version>
+                            <version>1.009</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
