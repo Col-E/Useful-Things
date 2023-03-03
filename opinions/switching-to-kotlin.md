@@ -96,6 +96,40 @@ So does [Java, JEP-409](https://openjdk.org/jeps/409).
 
 I've not found an instance of Kotlin-specific lambda usage that results in code that is easier to digest than an inline Java functional interface. I'm of the mindset that consistency and clear design are goals to strive towards to ensure future maintainability. Kotlin allows you to declare, invoke, and pass lambdas in a variety of ways. This is a _"convivence"_ that I find only serves to bring inconsistency into the language design.
 
+It is also worth mentioning Kotlin's handling of lambda's can lead to some unexpected behaviors if you are not explicit with your type usage. See: https://youtu.be/Ta5wBJsC39s?t=1836
+
+From the video, this Kotlin source does _not_ function as expected. The listener is never removed:
+
+```kt
+val w = Widget()
+
+val listener = { widget: Widget -> println("Listened to $widget") }
+
+w.addListener(listener)
+println(w.listeners.size())
+
+w.removeListener(listener)
+println(w.listeners.size())
+```
+
+Why does this simple add/remove not work? Well, if you take a look at the bytecode/decompiled logic it becomes obvious:
+
+```java
+Function1 listener = ...
+
+Object var10001 = listener;
+if (listener != null) 
+    var10001 = new LambdasKt$sam$Widget_Listener$0(listener);
+w.addListener((Listener) var10001);
+
+var10001 = listener;
+if (listener != null) 
+    var10001 = new LambdasKt$sam$Widget_Listener$0(listener);
+w.removeListener((Listener) var10001);
+```
+
+See how `listener` gets wrapped in the compiler-generated type and the calls to `add`/`remove` take in the generated value stored in `var10001` instead of directly using the `listener` variable?
+
 ## Argument: Kotlin has multi-line strings
 
 So does [Java, JEP-378](https://openjdk.java.net/jeps/378), and it does so more efficiently with under-the-hood invoke-dynamic usage.
