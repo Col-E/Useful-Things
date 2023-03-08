@@ -7,7 +7,6 @@ import org.example.weather.interfaces.INetworkAccessor;
 import org.example.weather.util.HTTP;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +14,6 @@ import java.util.regex.Pattern;
 /**
  * Implementation to lookup location based on IP.
  */
-@Singleton
 public class LocationProvider implements ILocationProvider {
 	private static final String API_URL = "https://db-ip.com/";
 	private static final Pattern COORDINATE_PATTERN = Pattern.compile(

@@ -7,13 +7,11 @@ import org.example.weather.interfaces.ICommandLoader;
 import org.example.weather.interfaces.ICommandManager;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.util.*;
 
 /**
  * Handles command instances and usage.
  */
-@Singleton
 public class CommandManager implements ICommandManager {
 	private final Map<String, ICommand> commands = new HashMap<>();
 
