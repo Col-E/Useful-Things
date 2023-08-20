@@ -18,6 +18,9 @@ Categories:
 
 * [How to choose libraries for a task](tips/choosing-libraries.md)
 * [How to write a library in context of verbosity and complexity](tips/verbosity-and-complexity.md)
+* Gradle bug and quirks:
+    * [Debugging](tips/gradle/debugging.md)
+	* [Publishing](tips/gradle/publishing.md)
 
 ## Tutorials
 
