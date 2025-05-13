@@ -139,4 +139,5 @@ While Javassist does have lower-level capabilities, its a bit more verbose to wo
 
 Items worth mentioning, but I do not have enough experience to give a detailed opinion on.
 
+* [https://openjdk.org/jeps/484](Class-File API (JDK 24 - JEP 484))
 * [ByteBuddy](https://bytebuddy.net)
