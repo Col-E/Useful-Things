@@ -42,4 +42,4 @@
 
 ## Serialization
 
-- [Kryo](https://github.com/EsotericSoftware/kryo) - Automatic binary serialization that isn't terrible. Highly configurable and can yield incredibly compact data formats when used well.
+- [Fury](https://github.com/apache/fury) - Automatic binary serialization that is incredibly well optimized in size and read/write speeds.
