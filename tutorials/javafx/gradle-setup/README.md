@@ -97,6 +97,8 @@ task fatJar(type: Jar) {
 
 Once you have the class name in there, you're done.
 
+> **Note**: Due to [name path overlaps](https://x.com/invokecoley/status/1511573194049835009) between different architectures for a given platform _(such as win-x86_64 & win-ARM)_ only one of the architectures will be supported at a time.
+
 ## Building & running the jar
 
 Open a terminal window and run `gradlew fatJar`. This will compile the project and place the contents into a new folder named `builds`.
