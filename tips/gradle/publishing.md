@@ -52,6 +52,26 @@ private static boolean isRuntimeDependency(Node node) {
 }
 ```
 
+## For <insert-reason> my publish task can't use `from components.java` so how do I make the `dependencies` block now?
+
+Under `publishing.publications.mavenJava.pom` use the following:
+```groovy
+withXml {
+    // Use different configurations based on your needs
+    def allDeps = project.configurations.runtimeClasspath.resolvedConfiguration.firstLevelModuleDependencies +
+            project.configurations.compileClasspath.resolvedConfiguration.firstLevelModuleDependencies +
+            project.configurations.testRuntimeClasspath.resolvedConfiguration.firstLevelModuleDependencies +
+            project.configurations.testCompileClasspath.resolvedConfiguration.firstLevelModuleDependencies
+    def root = asNode()
+    def dependenciesNode = root.appendNode("dependencies")
+    allDeps.each { d ->
+        def depNode = dependenciesNode.appendNode("dependency")
+        depNode.appendNode("groupId", d.moduleGroup)
+        depNode.appendNode("artifactId", d.name)
+        depNode.appendNode("version", d.moduleVersion)
+    }
+```
+
 ## Using the `java-test-fixtures` adds the project as a dependency in the pom to itself, breaking `:publish`
 
 Just don't use `java-test-fixtures`. I know, that _"tip"_ sucks, but so does Gradle.
