@@ -52,7 +52,7 @@ private static boolean isRuntimeDependency(Node node) {
 }
 ```
 
-## For <insert-reason> my publish task can't use `from components.java` so how do I make the `dependencies` block now?
+## My publish task can't use `from components.java` so how do I make the `dependencies` block now?
 
 Under `publishing.publications.mavenJava.pom` use the following:
 ```groovy
