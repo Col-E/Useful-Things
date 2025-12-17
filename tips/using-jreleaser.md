@@ -6,6 +6,7 @@ I've fiddled around with using it in a few ways, which include:
 
 - Gradle
     - [`build.gradle` for single-module project](https://github.com/Col-E/javafx-access-agent)
+    - [`build.gradle` for single-module project, with additional setup to accommodate for non-standard publish task setup](https://github.com/Col-E/BentoFX)
     - [`jreleaser.yml` for multi-module project, but only releasing a specific sub-module](https://github.com/Col-E/dex-translator)
 - Maven
     - [`jreleaser.yml` for single-module project](https://github.com/Col-E/LL-Java-Zip)
